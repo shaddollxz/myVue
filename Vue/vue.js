@@ -1,3 +1,9 @@
+/*
+ * @Author: shaddollxz
+ * @Date: 2021-07-27 20:20:17
+ * @LastEditTime: 2021-07-27 21:48:35
+ * @Description: 主体代码
+ */
 import render from "./Render.js";
 import Dep from "./Dep.js";
 import emit from "./eventBind.js";
@@ -37,7 +43,7 @@ export default class Vue {
         });
         //? onBeforeCreate
         options.onBeforCreate?.call(vm);
-        const data = options.data.call(vm);
+        const data = options.data?.call(vm);
         for (const key in data) {
             vm.datas[key] = vm.ref(data[key]);
         }

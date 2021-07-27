@@ -1,7 +1,7 @@
 /*
  * @Author: shaddollxz
  * @Date: 2021-07-27 17:53:25
- * @LastEditTime: 2021-07-27 20:18:01
+ * @LastEditTime: 2021-07-27 21:06:51
  * @Description:
  * 通过正则表达式解析html文本，然后用解析到的数据构建文档碎片
  * 最后清空挂载的app，重新填入文档
@@ -14,6 +14,7 @@ export default function render(vm) {
         /(?<tag>(?<=<)[^\/]+?(?=(>|\s)))|\{\{(\s*)(?<data>.+?)(\s*)\}\}|(?<text>(?<=>)\S+?(?=<))|(?<eName>(?<=@|(v-on:))\S+?)(=")(?<event>\S+?(?="))/g;
     const fragment = document.createDocumentFragment();
     let ele = {};
+    //? 每次匹配到tag就把获得的信息转成标签
     for (const result of vm.mountHTML.matchAll(regexp)) {
         if (result.groups.tag && ele.tag) {
             fragment.appendChild(createEle(vm, ele));
