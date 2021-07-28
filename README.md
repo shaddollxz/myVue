@@ -300,7 +300,7 @@ export default class Dep {
             this.lock = false;
             //! 应该在这里运用diff算法更新DOM树 这里只是重新渲染一次页面
             nextTick(render, vm);
-            nextTick(() => (this.lock = true)); //? onupdated
+            nextTick(() => (this.lock = true)); //? onUpdated
         }
     }
 }
@@ -314,6 +314,6 @@ export default function nextTick(cb, ...arg) {
 
 # 结语
 
-通过这些简单的代码就实现了一个简单的页面-数据双向绑定，[代码地址]()
+[代码地址](https://github.com/shaddollxz/myVue)
 
 说不定还会试着加入其它功能。

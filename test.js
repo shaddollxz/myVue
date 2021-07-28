@@ -1,8 +1,7 @@
-import Vue from "./Vue/vue.js";
+import Vue from "./Vue/2.0/vue.js";
 
 const options = {
     data() {
-        console.log(this);
         return {
             count: 0,
             counter: {
@@ -20,7 +19,7 @@ const options = {
             this.count++;
         },
         jian() {
-            this.emit("jian");
+            this.$emit("jian");
         },
     },
     onCreated() {

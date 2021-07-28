@@ -5,22 +5,21 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <style>
-            p {
-                font-size: xx-large;
-            }
-        </style>
     </head>
     <body>
-        <!-- 不够严谨，这里面不能标签嵌套 -->
         <div id="app">
-            <p>counter.count:</p>
-            <button @click="jian">-</button>
-            <span>{{ counter.count }}</span>
-            <button @click="add">+</button>
-            <button @jian="sub">jian</button>
-            <p>count:</p>
-            <span>{{count}}</span>
+            <div>
+                <p>counter.count:</p>
+                <button @click="jian">-</button>
+                <span>{{ counter.count }}</span>
+                <button @click="add">+</button>
+                <button @jian="sub">jian</button>
+                <p>count:</p>
+                <span>{{count}}</span>
+                <div>
+                    <input type="text" v-model="count" />
+                </div>
+            </div>
         </div>
 
         <script src="test.js" type="module"></script>
