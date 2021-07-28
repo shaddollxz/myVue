@@ -1,13 +1,12 @@
 /*
  * @Author: shaddollxz
  * @Date: 2021-07-27 17:53:25
- * @LastEditTime: 2021-07-28 14:16:09
+ * @LastEditTime: 2021-07-28 17:56:47
  * @Description:
  * 通过正则表达式解析挂载元素下的每个子元素，按照不同规则修改
  */
 
 import { eventBinder } from "./eventBind.js";
-import Watcher from "./watcher.js";
 import { getByPath } from "./util.js";
 
 export default function render($el, vm) {

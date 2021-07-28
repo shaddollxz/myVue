@@ -1,7 +1,7 @@
 /*
  * @Author: shaddollxz
  * @Date: 2021-07-27 23:05:06
- * @LastEditTime: 2021-07-28 13:13:34
+ * @LastEditTime: 2021-07-28 18:20:45
  * @Description: 将$data的数据改为响应式
  */
 import Dep from "./dep.js";
@@ -20,6 +20,12 @@ export default class Observer {
     }
     // *===============↓ 将数据转换为响应式数据的方法 ↓===============* //
     reactive(data) {
+        //? 如果对象里还有对象，递归实现响应式
+        for (const key in data) {
+            if (typeof data[key] === "object") {
+                data[key] = this.reactive(data[key]);
+            }
+        }
         return new Proxy(data, {
             get(target, p) {
                 window.target && dep.add(window.target);
