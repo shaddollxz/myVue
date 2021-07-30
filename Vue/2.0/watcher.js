@@ -1,7 +1,7 @@
 /*
  * @Author: shaddollxz
  * @Date: 2021-07-27 23:57:05
- * @LastEditTime: 2021-07-28 14:19:48
+ * @LastEditTime: 2021-07-30 11:21:38
  * @Description: file content
  */
 import { getByPath } from "./util.js";
@@ -20,7 +20,7 @@ export default class Watcher {
     update() {
         let newValue = getByPath(this.vm, this.key);
         if (newValue === this.oldValue) return;
+        this.cb(newValue, this.oldValue);
         this.oldValue = newValue;
-        this.cb(newValue);
     }
 }
